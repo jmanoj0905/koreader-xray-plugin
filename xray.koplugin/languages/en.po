@@ -279,7 +279,7 @@ msgid "fetching_model"
 msgstr "Model: "
 
 msgid "fetching_wait"
-msgstr "⏳ Please wait...\nThis process may take 10-30 seconds."
+msgstr "Please wait...\nThis process may take 10-30 seconds."
 
 msgid "dont_touch"
 msgstr "Do not touch the screen."
@@ -289,7 +289,7 @@ msgstr "Failed to fetch data from AI!\n\nPossible reasons:\n• Invalid API key\
 
 msgid "ai_fetch_complete"
 msgstr ""
-"✅ Successfully fetched from %s!\n"
+"Successfully fetched from %s!\n"
 "\n"
 "%s\n"
 "Author: %s\n"
@@ -755,31 +755,31 @@ msgid "ok"
 msgstr "OK"
 
 msgid "menu_fetch_full"
-msgstr "📚 Fetch AI Data (Full Book)"
+msgstr "Fetch AI Data (Full Book)"
 
 msgid "menu_fetch_progress"
-msgstr "📖 Up to Current Page (SPOILER-free)"
+msgstr "Up to Current Page (SPOILER-free)"
 
 msgid "progress_warning_low"
-msgstr "📖 You haven't progressed much yet (%%%d)\n\nContinue anyway?"
+msgstr "You haven't progressed much yet (%%%d)\n\nContinue anyway?"
 
 msgid "progress_error"
-msgstr "⚠️ Could not get reading progress!\n\nAnalyze full book instead?"
+msgstr "Could not get reading progress!\n\nAnalyze full book instead?"
 
 msgid "error_info"
-msgstr "❌ Error Occurred!"
+msgstr "Error Occurred!"
 
 msgid "error_no_network"
-msgstr "📡 No internet connection!\n\nPlease check your Wi-Fi connection."
+msgstr "No internet connection!\n\nPlease check your Wi-Fi connection."
 
 msgid "error_network_timeout"
-msgstr "⏱️ Connection timed out!\n\nCheck your internet connection and try again."
+msgstr "Connection timed out!\n\nCheck your internet connection and try again."
 
 msgid "error_invalid_api_key"
-msgstr "🔑 Invalid API key!\n\nPlease check your API key."
+msgstr "Invalid API key!\n\nPlease check your API key."
 
 msgid "error_unknown"
-msgstr "❌ Unknown error!\n\nPlease try again."
+msgstr "Unknown error!\n\nPlease try again."
 
 msgid "error_filtered"
 msgstr "Content was filtered."
@@ -788,13 +788,13 @@ msgid "spoiler_preference_title"
 msgstr "Spoiler Preference"
 
 msgid "spoiler_free_option"
-msgstr "🔒 Spoiler-free Mode (Up to %%%d of the book's)"
+msgstr "Spoiler-free Mode (Up to %%%d of the book)"
 
 msgid "full_book_option"
-msgstr "📖 Full Mode"
+msgstr "Full Mode"
 
 msgid "spoiler_free_mode"
-msgstr "🔒 Spoiler-free Mode: %%%d"
+msgstr "Spoiler-free Mode: %%%d"
 
 msgid "full_book_mode_active"
-msgstr "📖 Full Mode"
+msgstr "Full Mode"

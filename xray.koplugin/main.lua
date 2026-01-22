@@ -175,9 +175,9 @@ function XRayPlugin:autoLoadCache()
         
         UIManager:show(InfoMessage:new{
             text = self.loc:t("xray_ready") .. "\n\n" ..
-                   "👥 " .. #self.characters .. " " .. self.loc:t("characters_loaded") .. "\n" ..
-                   "📍 " .. #self.locations .. " " .. self.loc:t("locations_loaded") .. "\n" ..
-                   "🎨 " .. #self.themes .. " " .. self.loc:t("themes_loaded"),
+                   #self.characters .. " " .. self.loc:t("characters_loaded") .. "\n" ..
+                   #self.locations .. " " .. self.loc:t("locations_loaded") .. "\n" ..
+                   #self.themes .. " " .. self.loc:t("themes_loaded"),
             timeout = 3,
         })
     else
@@ -477,8 +477,8 @@ function XRayPlugin:showLanguageSelection()
         end
         
         UIManager:show(InfoMessage:new{
-            text = "✅" .. self.loc:t("language_changed") .. "\n\n" .. self.loc:t("please_restart"),
-            timeout = 4 
+            text = self.loc:t("language_changed") .. "\n\n" .. self.loc:t("please_restart"),
+            timeout = 4
         })
     end
     
@@ -530,7 +530,7 @@ function XRayPlugin:showCharacters()
     
     -- Add search option
     table.insert(items, {
-        text = self.loc:t("search_character") or "🔍 Search Character",
+        text = self.loc:t("search_character") or "Search Character",
         callback = function()
             self:showCharacterSearch()
         end
@@ -970,18 +970,18 @@ function XRayPlugin:showLocations()
             text = text .. "\n   " .. loc.description
         end
         if loc.importance then
-            text = text .. "\n   🎯 " .. loc.importance
+            text = text .. "\n   " .. loc.importance
         end
-        
+
         table.insert(items, {
             text = text,
             callback = function()
-                local detail_text = "📍 " .. (loc.name or "Unknown") .. "\n\n"
+                local detail_text = (loc.name or "Unknown") .. "\n\n"
                 if loc.description then
                     detail_text = detail_text .. loc.description .. "\n\n"
                 end
                 if loc.importance then
-                    detail_text = detail_text .. "🎯 " .. self.loc:t("importance") .. "\n" .. loc.importance
+                    detail_text = detail_text .. self.loc:t("importance") .. "\n" .. loc.importance
                 end
                 UIManager:show(InfoMessage:new{
                     text = detail_text,
@@ -1013,14 +1013,14 @@ function XRayPlugin:showAuthorInfo()
         return
     end
     
-    local text = "✍️ " .. (self.author_info.name or self.loc:t("menu_author_info")) .. "\n\n"
+    local text = (self.author_info.name or self.loc:t("menu_author_info")) .. "\n\n"
     text = text .. self.author_info.description .. "\n\n"
-    
+
     if self.author_info.birthDate and #self.author_info.birthDate > 0 then
-        text = text .. "📅: " .. self.author_info.birthDate .. "\n"
+        text = text .. "Born: " .. self.author_info.birthDate .. "\n"
     end
     if self.author_info.deathDate and #self.author_info.deathDate > 0 then
-        text = text .. "💀: " .. self.author_info.deathDate .. "\n"
+        text = text .. "Died: " .. self.author_info.deathDate .. "\n"
     end
     
     UIManager:show(InfoMessage:new{
@@ -1135,27 +1135,27 @@ function XRayPlugin:findCharacterByName(word)
 end
 
 function XRayPlugin:showCharacterInfo(char)
-    local text = "👤 " .. (char.name or "Unknown") .. "\n\n"
-    
+    local text = (char.name or "Unknown") .. "\n\n"
+
     if char.description then
         text = text .. char.description .. "\n\n"
     end
-    
+
     if char.role then
-        text = text .. "🎭 " .. self.loc:t("role") .. ": " .. char.role .. "\n"
+        text = text .. self.loc:t("role") .. ": " .. char.role .. "\n"
     end
-    
+
     if char.gender then
-        local gender_tr = char.gender == "male" and self.loc:t("gender_male") or 
-                         char.gender == "female" and self.loc:t("gender_female") or 
+        local gender_tr = char.gender == "male" and self.loc:t("gender_male") or
+                         char.gender == "female" and self.loc:t("gender_female") or
                          char.gender == "erkek" and self.loc:t("gender_male") or
                          char.gender == "kadın" and self.loc:t("gender_female") or
                          char.gender
-        text = text .. "👤 " .. self.loc:t("gender") .. ": " .. gender_tr .. "\n"
+        text = text .. self.loc:t("gender") .. ": " .. gender_tr .. "\n"
     end
-    
+
     if char.occupation then
-        text = text .. "💼 " .. self.loc:t("occupation") .. ": " .. char.occupation .. "\n"
+        text = text .. self.loc:t("occupation") .. ": " .. char.occupation .. "\n"
     end
     
     UIManager:show(InfoMessage:new{
@@ -1290,7 +1290,7 @@ function XRayPlugin:selectAIProvider()
     local gemini_key = self.ai_helper.providers.gemini and self.ai_helper.providers.gemini.api_key
     if gemini_key and gemini_key ~= "" then
         table.insert(providers, {
-            text = "✅ Google Gemini (" .. (self.loc:getLanguage() == "tr" and "Aktif" or "Active") .. ": " .. (self.ai_provider == "gemini" and (self.loc:getLanguage() == "tr" and "EVET" or "YES") or (self.loc:getLanguage() == "tr" and "HAYIR" or "NO")) .. ")",
+            text = "[OK] Google Gemini (" .. (self.loc:getLanguage() == "tr" and "Aktif" or "Active") .. ": " .. (self.ai_provider == "gemini" and (self.loc:getLanguage() == "tr" and "EVET" or "YES") or (self.loc:getLanguage() == "tr" and "HAYIR" or "NO")) .. ")",
             callback = function()
                 self.ai_provider = "gemini"
                 self.ai_helper:setDefaultProvider("gemini")
@@ -1307,7 +1307,7 @@ function XRayPlugin:selectAIProvider()
         })
     else
         table.insert(providers, {
-            text = "❌ Google Gemini (" .. (self.loc:getLanguage() == "tr" and "API key yok" or "No API key") .. ")",
+            text = "[--] Google Gemini (" .. (self.loc:getLanguage() == "tr" and "API key yok" or "No API key") .. ")",
             callback = function()
                 UIManager:show(InfoMessage:new{
                     text = self.loc:t("set_key_first"), 
@@ -1320,7 +1320,7 @@ function XRayPlugin:selectAIProvider()
     local chatgpt_key = self.ai_helper.providers.chatgpt and self.ai_helper.providers.chatgpt.api_key
     if chatgpt_key and chatgpt_key ~= "" then
         table.insert(providers, {
-            text = "✅ ChatGPT (" .. (self.loc:getLanguage() == "tr" and "Aktif" or "Active") .. ": " .. (self.ai_provider == "chatgpt" and (self.loc:getLanguage() == "tr" and "EVET" or "YES") or (self.loc:getLanguage() == "tr" and "HAYIR" or "NO")) .. ")",
+            text = "[OK] ChatGPT (" .. (self.loc:getLanguage() == "tr" and "Aktif" or "Active") .. ": " .. (self.ai_provider == "chatgpt" and (self.loc:getLanguage() == "tr" and "EVET" or "YES") or (self.loc:getLanguage() == "tr" and "HAYIR" or "NO")) .. ")",
             callback = function()
                 self.ai_provider = "chatgpt"
                 self.ai_helper:setDefaultProvider("chatgpt")
@@ -1337,7 +1337,7 @@ function XRayPlugin:selectAIProvider()
         })
     else
         table.insert(providers, {
-            text = "❌ ChatGPT (" .. (self.loc:getLanguage() == "tr" and "API key yok" or "No API key") .. ")",
+            text = "[--] ChatGPT (" .. (self.loc:getLanguage() == "tr" and "API key yok" or "No API key") .. ")",
             callback = function()
                 UIManager:show(InfoMessage:new{
                     text = self.loc:t("set_key_first"), 
@@ -1373,7 +1373,7 @@ function XRayPlugin:showSummary()
     end
     
     UIManager:show(InfoMessage:new{
-        text = "📖 " .. self.loc:t("summary_title") .. "\n\n" .. self.summary .. "\n\n(Spoiler-free)", 
+        text = self.loc:t("summary_title") .. "\n\n" .. self.summary .. "\n\n(Spoiler-free)",
         timeout = 15,
     })
 end
@@ -1387,7 +1387,7 @@ function XRayPlugin:showThemes()
         return
     end
     
-    local text = "🎨 " .. self.loc:t("themes_title") .. "\n\n" 
+    local text = self.loc:t("themes_title") .. "\n\n" 
     for i, theme in ipairs(self.themes) do
         text = text .. i .. ". " .. theme .. "\n"
     end
@@ -1410,17 +1410,17 @@ function XRayPlugin:showTimeline()
     local items = {}
     for i, event in ipairs(self.timeline) do
         local text = ""
-        
+
         if event.chapter then
-            text = text .. "📖 " .. event.chapter .. "\n"
+            text = text .. event.chapter .. "\n"
         end
-        
+
         if event.event then
             text = text .. event.event
         end
-        
+
         if event.characters and #event.characters > 0 then
-            text = text .. "\n👥 " .. table.concat(event.characters, ", ")
+            text = text .. "\n" .. table.concat(event.characters, ", ")
         end
         
         table.insert(items, {
@@ -1482,7 +1482,7 @@ function XRayPlugin:showHistoricalFigures()
         local text = ""
         
         if figure.name then
-            text = text .. "👤 " .. figure.name
+            text = text .. figure.name
         end
         
         if figure.birth_year or figure.death_year then
@@ -1523,10 +1523,9 @@ function XRayPlugin:showHistoricalFigures()
 end
 
 function XRayPlugin:showHistoricalFigureDetails(figure)
-    local text = "📜 " .. (figure.name or "Unknown") .. "\n\n"
-    
+    local text = (figure.name or "Unknown") .. "\n\n"
+
     if figure.birth_year or figure.death_year then
-        text = text .. "📅 "
         if figure.birth_year then
             text = text .. figure.birth_year
         end
@@ -1537,22 +1536,22 @@ function XRayPlugin:showHistoricalFigureDetails(figure)
         end
         text = text .. "\n\n"
     end
-    
+
     if figure.role then
-        text = text .. "👔 " .. self.loc:t("role") .. ": " .. figure.role .. "\n\n"
+        text = text .. self.loc:t("role") .. ": " .. figure.role .. "\n\n"
     end
-    
-    
+
+
     if figure.biography then
-        text = text .. "📖 " .. self.loc:t("hist_bio") .. ":\n" .. figure.biography .. "\n\n"
+        text = text .. self.loc:t("hist_bio") .. ":\n" .. figure.biography .. "\n\n"
     end
-    
+
     if figure.importance_in_book then
-        text = text .. "📚 " .. self.loc:t("hist_importance") .. ":\n" .. figure.importance_in_book .. "\n\n"
+        text = text .. self.loc:t("hist_importance") .. ":\n" .. figure.importance_in_book .. "\n\n"
     end
-    
+
     if figure.context_in_book then
-        text = text .. "💡 " .. self.loc:t("hist_context") .. ":\n" .. figure.context_in_book
+        text = text .. self.loc:t("hist_context") .. ":\n" .. figure.context_in_book
     end
     
     UIManager:show(InfoMessage:new{
@@ -1605,17 +1604,17 @@ function XRayPlugin:showChapterCharacters()
         local char = char_info.character
         local count = char_info.count
         
-        local gender_icon = ""
+        local gender_marker = ""
         if char.gender == "male" or char.gender == "erkek" then
-            gender_icon = "👨 "
+            gender_marker = "(M) "
         elseif char.gender == "female" or char.gender == "kadın" then
-            gender_icon = "👩 "
+            gender_marker = "(F) "
         else
-            gender_icon = "👤 "
+            gender_marker = ""
         end
-        
+
         table.insert(items, {
-            text = string.format("%s%s (%dx)", gender_icon, char.name, count),
+            text = string.format("%s%s (%dx)", gender_marker, char.name, count),
             callback = function()
                 self:showCharacterInfo(char)
             end,
@@ -1623,8 +1622,8 @@ function XRayPlugin:showChapterCharacters()
     end
     
     local menu = Menu:new{
-        title = string.format("📖 %s\n👥 %d %s", 
-                             chapter_title or self.loc:t("this_chapter"), 
+        title = string.format("%s\n%d %s",
+                             chapter_title or self.loc:t("this_chapter"),
                              #found_chars,
                              self.loc:t("chapter_chars_title")), 
         item_table = items,
@@ -1672,7 +1671,7 @@ function XRayPlugin:showCharacterNotes()
             end
             
             table.insert(items, {
-                text = "📝 " .. char_name .. "\n   " .. note_preview,
+                text = char_name .. "\n   " .. note_preview,
                 callback = function()
                     self:showCharacterWithNote(char, note)
                 end,
@@ -1691,7 +1690,7 @@ function XRayPlugin:showCharacterNotes()
         local note = self.notes_manager:getNote(self.character_notes, char.name)
         if not note then
             table.insert(items, {
-                text = "➕ " .. char_name .. " (" .. self.loc:t("add_note") .. ")",
+                text = "+ " .. char_name .. " (" .. self.loc:t("add_note") .. ")",
                 callback = function()
                     self:addCharacterNote(char)
                 end,
@@ -1717,7 +1716,7 @@ function XRayPlugin:showCharacterWithNote(char, note)
     
     local input_dialog
     input_dialog = InputDialog:new{
-        title = "📝 " .. char.name,
+        title = char.name,
         input = note.text,
         input_hint = self.loc:t("note_hint"),
         buttons = {

@@ -1,4 +1,4 @@
-# 📖 X-Ray Plugin for KOReader
+# X-Ray Plugin for KOReader
 
 Transform your reading experience with AI-powered book analysis, just like Amazon Kindle X-Ray!
 
@@ -8,23 +8,23 @@ Transform your reading experience with AI-powered book analysis, just like Amazo
 
 ---
 
-## 🎯 What is X-Ray Plugin?
+## What is X-Ray Plugin?
 
 X-Ray Plugin brings Amazon Kindle's beloved X-Ray feature to KOReader. Using advanced AI technology (Google Gemini or ChatGPT), it automatically extracts and organizes content while ensuring a spoiler-free experience:
 
-    👥 Characters - Names, descriptions, roles, occupations
+    Characters - Names, descriptions, roles, occupations
 
-    📍 Locations - Important places and their significance
+    Locations - Important places and their significance
 
-    🛡️ Spoiler Free - Intelligent summaries that avoid revealing major plot twists
+    Spoiler Free - Intelligent summaries that avoid revealing major plot twists
 
-    ⏱️ Timeline - Key events in chronological order
+    Timeline - Key events in chronological order
 
-    📜 Historical Figures - Real people mentioned in the book
+    Historical Figures - Real people mentioned in the book
 
-    🎨 Themes - Main themes and ideas
+    Themes - Main themes and ideas
 
-    📝 Notes - Your personal character notes
+    Notes - Your personal character notes
 
 All data is cached locally for offline use and works without internet after the initial fetch!
 
@@ -32,9 +32,9 @@ All data is cached locally for offline use and works without internet after the 
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🤖 AI Integration
+### AI Integration
 
 - **Google Gemini 2.5 Flash** (FREE, recommended)
 - **Google Gemini 2.5 Pro** (optional, more detailed)
@@ -42,35 +42,35 @@ All data is cached locally for offline use and works without internet after the 
 - Smart JSON parsing with error recovery
 - Language-aware prompts (Turkish/English/Português etc.)
 
-### 👥 Character Management
+### Character Management
 
 - Automatic character extraction from book title
 - Detailed profiles: name, description, role, gender, occupation
 - **Character search** with fuzzy matching
 - **Chapter analysis**: See which characters appear in current chapter
 - **Personal notes**: Add your own notes for each character
-- **📊 Smart Menu Counters**: See live counts (e.g., "Characters (12)")
+- **Smart Menu Counters**: See live counts (e.g., "Characters (12)")
 
-### 📖 Advanced Analysis
+### Advanced Analysis
 
 - **Timeline**: Important events in chronological order
 - **Historical Figures**: Real people mentioned (with biographies!)
 - **Locations**: Important places and their significance
 - **Themes**: Main themes extracted by AI
 - **Spoiler-Free**: AI is trained to avoid spoilers
-- **🔍 Enhanced Historical Analysis**: Detects direct and indirect historical references
+- **Enhanced Historical Analysis**: Detects direct and indirect historical references
 
-### 💾 Cache System
+### Cache System
 
 - **Unlimited validity**: Cache never expires
 - **Offline usage**: Internet only needed for initial fetch
 - **Per-book storage**: Each book has its own cache
 - **Auto-load**: Cache loads automatically when opening a book
-- **🌍 Multi-Language Support**: Interface + AI prompts
+- **Multi-Language Support**: Interface + AI prompts
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Installation
 
@@ -99,17 +99,17 @@ cp -r xray.koplugin ~/.config/koreader/plugins/
 2. Go to **Menu → X-Ray → AI Settings**
 3. Select **Google Gemini API Key**
 4. Paste your API key
-5. Done! ✅
+5. Done!
 
 ### 4. Fetch Your First Book
 
 1. Go to **Menu → X-Ray → Fetch AI Data** (veya "AI ile Bilgi Çek")
 2. Wait 10-15 seconds
-3. Done! All data is now cached offline ✨
+3. Done! All data is now cached offline
 
 ---
 
-## 📱 Usage
+## Usage
 
 ### Quick Access
 
@@ -119,7 +119,7 @@ cp -r xray.koplugin ~/.config/koreader/plugins/
 
 ### Main Features
 
-#### 👥 Characters
+#### Characters
 ```
 Menu → X-Ray → Characters
 ```
@@ -127,7 +127,7 @@ Menu → X-Ray → Characters
 - Click any character for detailed info
 - Search for specific characters
 
-#### 📖 This Chapter
+#### This Chapter
 ```
 Menu → X-Ray → Characters in This Chapter
 ```
@@ -135,7 +135,7 @@ Menu → X-Ray → Characters in This Chapter
 - Shows occurrence frequency (e.g., "John (5x)")
 - Quick access to character details
 
-#### ⏱️ Timeline
+#### Timeline
 ```
 Menu → X-Ray → Timeline
 ```
@@ -143,7 +143,7 @@ Menu → X-Ray → Timeline
 - Chapter references
 - Characters involved in each event
 
-#### 📜 Historical Figures
+#### Historical Figures
 ```
 Menu → X-Ray → Historical Figures
 ```
@@ -151,7 +151,7 @@ Menu → X-Ray → Historical Figures
 - Biographies and dates
 - Context in the book
 
-#### 📝 Character Notes
+#### Character Notes
 ```
 Menu → X-Ray → My Character Notes
 ```
@@ -161,7 +161,7 @@ Menu → X-Ray → My Character Notes
 
 ### Advanced Features
 
-#### 🌍 Change Language
+#### Change Language
 ```
 Menu → X-Ray → Language / Dil
 ```
@@ -169,7 +169,7 @@ Menu → X-Ray → Language / Dil
 - Applies immediately (menu refreshes on next open)
 - AI will fetch data in selected language
 
-#### 🗑️ Clear Cache
+#### Clear Cache
 ```
 Menu → X-Ray → Clear Cache
 ```
@@ -189,7 +189,7 @@ Menu → X-Ray → Clear Cache
 ![photo_2025-10-30_13-38-33](https://github.com/user-attachments/assets/8c8aabd1-e8da-4690-a55d-d20fafc11484)
 
 
-## 🛠️ Configuration
+## Configuration
 
 ### config.lua (Optional)
 
@@ -237,7 +237,7 @@ return {
 
 ---
 
-## 💡 Tips & Tricks
+## Tips & Tricks
 
 ### For Best Results
 
@@ -267,7 +267,7 @@ Examples:
 
 ---
 
-## 📚 Example Use Cases
+## Example Use Cases
 
 ### Classic Literature: "Crime and Punishment"
 
@@ -324,18 +324,18 @@ Examples:
 
 ---
 
-## 🌍 Supported Languages
+## Supported Languages
 
 ### Interface Languages
-- 🇹🇷 **Turkish** (Türkçe)
-- 🇬🇧 **English**
-- 🇵🇹 **Brazilian Português**
+- **Turkish** (Türkçe)
+- **English**
+- **Brazilian Portugues**
 
 ### AI Data Languages
 AI automatically provides data in the selected interface language:
 - Turkish interface → AI responses in Turkish
 - English interface → AI responses in English
-- Brazilian Português interface → AI responses in Português
+- Brazilian Portugues interface → AI responses in Portugues
 
 ### Adding New Languages
 
@@ -343,11 +343,11 @@ AI automatically provides data in the selected interface language:
 2. Add new language code (e.g., `de` for German)
 3. Translate all strings in `de.po = { ... }`
 4. Add prompt templates in `de.lua`
-5. Done! 🎉
+5. Done!
 
 ---
 
-## 🔧 Technical Details
+## Technical Details
 
 ### Architecture
 
@@ -386,7 +386,7 @@ characternotes.lua → Personal notes management
 
 ---
 
-## ❓ FAQ
+## FAQ
 
 **Q: Is the API key safe?**
 A: Yes, it's stored locally in KOReader. Never shared.
@@ -420,7 +420,7 @@ A: Yes! See Contributing section below.
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### "API key not set"
 → Go to Menu → X-Ray → AI Settings → Set API key
@@ -446,7 +446,7 @@ A: Yes! See Contributing section below.
 
 ---
 
-## 🎯 Roadmap
+## Roadmap
 
 ### Planned Features
 - [ ] More AI providers (Claude, local LLMs)
@@ -459,7 +459,7 @@ A: Yes! See Contributing section below.
 - [ ] Character appearance highlighting in text
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Here's how:
 
@@ -489,31 +489,31 @@ Contributions are welcome! Here's how:
 
 ---
 
-## 📜 License
+## License
 
 MIT License - See LICENSE file for details
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **KOReader Team** - For the amazing e-reader platform
 - **Testers** - For valuable feedback
-- **You** - For using X-Ray Plugin! 📖✨
+- **You** - For using X-Ray Plugin!
 
 ---
 
-## 📮 Support
+## Support
 
 - **GitHub Issues**: Report bugs and request features
 ---
 
-## 🌟 Star History
+## Star History
 
-If you find this plugin useful, please star the repository! ⭐
+If you find this plugin useful, please star the repository!
 
 ---
 
-**Made with ❤️ for book lovers everywhere**
+**Made with care for book lovers everywhere**
 
-*Happy Reading! 📖✨*
+*Happy Reading!*

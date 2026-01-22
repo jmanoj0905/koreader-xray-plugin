@@ -1,7 +1,7 @@
 return {
     -- System instruction
     system_instruction = "You are an expert literary critic. Your response must be ONLY in valid JSON format. Do not use Markdown, introductory sentences, or extra explanations.",
-    
+
     -- Main prompt (Full book analysis)
     main = [[Book: "%s" - Author: %s
 Create detailed X-Ray data for this book. Fill in the JSON format below COMPLETELY.
@@ -9,8 +9,10 @@ RULES:
 1. Do not deviate from the JSON format.
 2. The "author_bio" field is MANDATORY; write 2-3 sentences about the author.
 3. CHARACTERS: List at least 15-20 characters (Protagonists and supporting characters).
-4. HISTORICAL FIGURES: Find REAL historical figures mentioned in the book or influencing the era. If none, do not leave empty; add the king/leader of the era as a "Period Figure".
-5. DETAILS: Never leave "importance_in_book" and "context_in_book" fields empty. Analyze the context within the book.
+4. RELATIONSHIPS: For each character, list their relationships to other characters (family, romantic, rival, friend, employer, etc.)
+5. HISTORICAL FIGURES: Find REAL historical figures mentioned in the book or influencing the era. If none, do not leave empty; add the king/leader of the era as a "Period Figure".
+6. TIMELINE: Create a detailed timeline with events from the BEGINNING, MIDDLE, and END of the story. Each event should have a brief summary.
+7. DETAILS: Never leave "importance_in_book" and "context_in_book" fields empty. Analyze the context within the book.
 REQUIRED JSON FORMAT:
 {
   "book_title": "Book Title",
@@ -23,7 +25,10 @@ REQUIRED JSON FORMAT:
       "role": "Protagonist / Supporting Character / Antagonist",
       "gender": "Male / Female / Ambiguous",
       "occupation": "Occupation or Status",
-      "description": "Detailed analysis and personality traits of the character"
+      "description": "Detailed analysis and personality traits of the character",
+      "relationships": [
+        {"character": "Other Character Name", "relation": "Wife/Husband/Father/Mother/Son/Daughter/Friend/Enemy/Employer/Employee/Rival/Lover/etc."}
+      ]
     }
   ],
   "historical_figures": [
@@ -40,7 +45,14 @@ REQUIRED JSON FORMAT:
   ],
   "themes": ["Theme 1", "Theme 2", "Theme 3", "Theme 4", "Theme 5"],
   "timeline": [
-    {"event": "Event Title", "chapter": "Relevant Chapter/Section", "importance": "Significance of the event"}
+    {
+      "event": "Event Title",
+      "chapter": "Relevant Chapter/Section",
+      "importance": "Significance of the event",
+      "story_phase": "Beginning / Middle / End",
+      "summary": "Brief 1-2 sentence summary of what happens in this event",
+      "characters": ["Character 1", "Character 2"]
+    }
   ]
 }]],
 
@@ -55,6 +67,7 @@ SPOILER PREVENTION RULES:
 4. Timeline events must ONLY cover what the reader has already read
 5. Character descriptions should reflect their current state, not later developments
 6. Summary must ONLY cover events the reader has already experienced
+7. Relationships should only include those revealed up to this point
 
 ADDITIONAL RULES:
 1. Author bio is mandatory (this never contains spoilers)
@@ -74,7 +87,10 @@ REQUIRED JSON FORMAT:
       "role": "Protagonist / Supporting Character / Antagonist",
       "gender": "Male / Female / Ambiguous",
       "occupation": "Occupation or Status",
-      "description": "Character state at current reading point - DO NOT reveal later developments"
+      "description": "Character state at current reading point - DO NOT reveal later developments",
+      "relationships": [
+        {"character": "Other Character Name", "relation": "Relationship revealed so far"}
+      ]
     }
   ],
   "historical_figures": [
@@ -91,7 +107,14 @@ REQUIRED JSON FORMAT:
   ],
   "themes": ["Only themes evident in the story so far"],
   "timeline": [
-    {"event": "Event Title (ONLY events that have occurred)", "chapter": "Relevant Chapter/Section", "importance": "Significance"}
+    {
+      "event": "Event Title (ONLY events that have occurred)",
+      "chapter": "Relevant Chapter/Section",
+      "importance": "Significance",
+      "story_phase": "Beginning / Middle (based on reading progress)",
+      "summary": "Brief summary of the event",
+      "characters": ["Characters involved"]
+    }
   ]
 }]],
 

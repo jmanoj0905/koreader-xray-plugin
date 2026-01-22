@@ -58,17 +58,17 @@ function ChapterAnalyzer:getReflowableText(ui)
     local toc = ui.document:getToc()
     if not toc or #toc == 0 then
         logger.info("ChapterAnalyzer: No TOC, using visible text")
-        return self:getVisibleTextReflowable(ui), "Bu Bölüm"
+        return self:getVisibleTextReflowable(ui), "This Chapter"
     end
     
     -- Find current chapter
     local current_chapter = nil
-    local chapter_title = "Bu Bölüm"
+    local chapter_title = "This Chapter"
     
     for i, chapter in ipairs(toc) do
         if chapter.page <= current_pos then
             current_chapter = chapter
-            chapter_title = chapter.title or "Bu Bölüm"
+            chapter_title = chapter.title or "This Chapter"
         else
             break
         end
@@ -76,7 +76,7 @@ function ChapterAnalyzer:getReflowableText(ui)
     
     if not current_chapter then
         logger.warn("ChapterAnalyzer: No current chapter found")
-        return self:getVisibleTextReflowable(ui), "Bu Bölüm"
+        return self:getVisibleTextReflowable(ui), "This Chapter"
     end
     
     logger.info("ChapterAnalyzer: Current chapter:", chapter_title)
@@ -246,7 +246,7 @@ function ChapterAnalyzer:getCurrentPageTextPDF(ui)
         end
     end
     
-    return text, "Bu Sayfa"
+    return text, "This Page"
 end
 
 -- Fallback for unknown document types
@@ -277,7 +277,7 @@ function ChapterAnalyzer:getFallbackText(ui)
         return nil, nil
     end
     
-    return text, "Bu Sayfa"
+    return text, "This Page"
 end
 
 -- Find characters mentioned in text
@@ -325,18 +325,19 @@ function ChapterAnalyzer:findCharactersInText(text, characters)
     return found_characters
 end
 
--- Count how many times a name appears
+-- Count how many times a name appears (non-overlapping search for performance)
 function ChapterAnalyzer:countMentions(text, name)
     local count = 0
     local pos = 1
-    
+    local name_len = #name
+
     while true do
         local start_pos = string.find(text, name, pos, true)
         if not start_pos then break end
         count = count + 1
-        pos = start_pos + 1
+        pos = start_pos + name_len  -- Skip past the match to avoid overlapping searches
     end
-    
+
     return count
 end
 
